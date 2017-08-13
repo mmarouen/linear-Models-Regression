@@ -87,3 +87,10 @@ PLSfit<- function(Input,resp,q){
   return(list(yhatMat=yhatMat,betaMat=betaMat,RSS=RSS,Beta=Beta))
 }
 
+#predictions for any linear model
+predictLS<-function(LSModel=NULL,X,beta=NULL){
+  if(!is.null(LSModel)){beta=LSModel$beta}
+  yhat=as.matrix(cbind(1,X))%*%beta
+  return(yhat)
+}
+
