@@ -87,3 +87,10 @@ extractLambdas <- function(X,DoF=NULL){
   }
   return(Lambdas)
 }
+
+#predictions for any linear model
+predictLS<-function(LSModel=NULL,X,beta=NULL){
+  if(!is.null(LSModel)){beta=LSModel$beta}
+  yhat=as.matrix(cbind(1,X))%*%beta
+  return(yhat)
+}
