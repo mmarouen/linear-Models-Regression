@@ -141,3 +141,11 @@ subsetfit<-function(Input,Response,q,modelFit=FALSE){
   }
   return(list(beta=beta,RSS=RSS,yhat=yhat,varList=featList,errorVector=errorVector,betaMat=betaMat))
 }
+
+#predictions for any linear model
+predictLS<-function(LSModel=NULL,X,beta=NULL){
+  if(!is.null(LSModel)){beta=LSModel$beta}
+  yhat=as.matrix(cbind(1,X))%*%beta
+  return(yhat)
+}
+
